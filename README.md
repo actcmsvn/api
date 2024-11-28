@@ -40,11 +40,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email contact@botble.com instead of using the issue tracker.
+If you discover any security related issues, please email info@actcms.io.vn instead of using the issue tracker.
 
 ## Credits
 
-- [Botble Technologies](https://github.com/botble)
+- [ACTCMS Vietnam](https://github.com/actcmsvn)
 - [All Contributors](../../contributors)
 
 ## License
