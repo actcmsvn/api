@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Botble\Api\Http\Requests;
 
-use ACTCMS\Support\Http\Requests\Request;
+use Botble\Support\Http\Requests\Request;
 
 class ForgotPasswordRequest extends Request
 {

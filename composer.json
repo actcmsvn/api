@@ -1,6 +1,6 @@
 {
     "name": "actcmsvn/api",
-    "description": "API package for ACTCMS",
+    "description": "Gói API cho hệ thống ACTCMS",
     "type": "package",
     "license": "MIT",
     "keywords": [
@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "ACTCMS\\Api\\": "src"
+            "Botble\\Api\\": "src"
         }
     },
     "require": {
@@ -31,10 +31,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ACTCMS\\Api\\Providers\\ApiServiceProvider"
+                "Botble\\Api\\Providers\\ApiServiceProvider"
             ],
             "aliases": {
-                "ApiHelper": "ACTCMS\\Api\\Facades\\ApiHelper"
+                "ApiHelper": "Botble\\Api\\Facades\\ApiHelper"
             }
         }
     },

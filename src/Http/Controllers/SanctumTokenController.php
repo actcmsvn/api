@@ -1,14 +1,14 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Botble\Api\Http\Controllers;
 
-use ACTCMS\Api\Forms\SanctumTokenForm;
-use ACTCMS\Api\Http\Requests\StoreSanctumTokenRequest;
-use ACTCMS\Api\Models\PersonalAccessToken;
-use ACTCMS\Api\Tables\SanctumTokenTable;
-use ACTCMS\Base\Http\Actions\DeleteResourceAction;
-use ACTCMS\Base\Http\Controllers\BaseController;
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Botble\Api\Forms\SanctumTokenForm;
+use Botble\Api\Http\Requests\StoreSanctumTokenRequest;
+use Botble\Api\Models\PersonalAccessToken;
+use Botble\Api\Tables\SanctumTokenTable;
+use Botble\Base\Http\Actions\DeleteResourceAction;
+use Botble\Base\Http\Controllers\BaseController;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 

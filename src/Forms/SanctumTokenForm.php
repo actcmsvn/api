@@ -1,12 +1,12 @@
 <?php
 
-namespace ACTCMS\Api\Forms;
+namespace Botble\Api\Forms;
 
-use ACTCMS\Api\Http\Requests\StoreSanctumTokenRequest;
-use ACTCMS\Api\Models\PersonalAccessToken;
-use ACTCMS\Base\Forms\FieldOptions\NameFieldOption;
-use ACTCMS\Base\Forms\Fields\TextField;
-use ACTCMS\Base\Forms\FormAbstract;
+use Botble\Api\Http\Requests\StoreSanctumTokenRequest;
+use Botble\Api\Models\PersonalAccessToken;
+use Botble\Base\Forms\FieldOptions\NameFieldOption;
+use Botble\Base\Forms\Fields\TextField;
+use Botble\Base\Forms\FormAbstract;
 
 class SanctumTokenForm extends FormAbstract
 {

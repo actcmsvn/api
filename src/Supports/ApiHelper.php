@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTCMS\Api\Supports;
+namespace Botble\Api\Supports;
 
 use App\Models\User;
-use ACTCMS\Base\Models\BaseModel;
+use Botble\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
 class ApiHelper

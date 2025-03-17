@@ -1,11 +1,11 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Botble\Api\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use ACTCMS\ACL\Traits\SendsPasswordResetEmails;
-use ACTCMS\Api\Facades\ApiHelper;
-use ACTCMS\Api\Http\Requests\ForgotPasswordRequest;
+use Botble\ACL\Traits\SendsPasswordResetEmails;
+use Botble\Api\Facades\ApiHelper;
+use Botble\Api\Http\Requests\ForgotPasswordRequest;
 use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller

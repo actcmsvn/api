@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Botble\Api\Http\Requests;
 
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;

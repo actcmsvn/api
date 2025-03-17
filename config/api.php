@@ -1,6 +1,6 @@
 <?php
 
-use ACTCMS\ACL\Models\User;
+use Botble\ACL\Models\User;
 
 return [
     'provider' => [

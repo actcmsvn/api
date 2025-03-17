@@ -1,16 +1,16 @@
 <?php
 
-namespace ACTCMS\Api\Providers;
+namespace Botble\Api\Providers;
 
-use ACTCMS\Api\Facades\ApiHelper;
-use ACTCMS\Api\Commands\GenerateDocumentationCommand;
-use ACTCMS\Api\Http\Middleware\ForceJsonResponseMiddleware;
-use ACTCMS\Api\Models\PersonalAccessToken;
-use ACTCMS\Base\Facades\PanelSectionManager;
-use ACTCMS\Base\PanelSections\PanelSectionItem;
-use ACTCMS\Base\Supports\ServiceProvider;
-use ACTCMS\Base\Traits\LoadAndPublishDataTrait;
-use ACTCMS\Setting\PanelSections\SettingCommonPanelSection;
+use Botble\Api\Facades\ApiHelper;
+use Botble\Api\Commands\GenerateDocumentationCommand;
+use Botble\Api\Http\Middleware\ForceJsonResponseMiddleware;
+use Botble\Api\Models\PersonalAccessToken;
+use Botble\Base\Facades\PanelSectionManager;
+use Botble\Base\PanelSections\PanelSectionItem;
+use Botble\Base\Supports\ServiceProvider;
+use Botble\Base\Traits\LoadAndPublishDataTrait;
+use Botble\Setting\PanelSections\SettingCommonPanelSection;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Events\RouteMatched;
 use Laravel\Sanctum\Sanctum;
@@ -36,7 +36,7 @@ class ApiServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        if (version_compare('1.3.0', get_core_version(), '>')) {
+        if (version_compare('7.2.0', get_core_version(), '>')) {
             return;
         }
 

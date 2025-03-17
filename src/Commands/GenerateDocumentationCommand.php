@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Commands;
+namespace Botble\Api\Commands;
 
-use ACTCMS\Setting\Facades\Setting;
+use Botble\Setting\Facades\Setting;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
