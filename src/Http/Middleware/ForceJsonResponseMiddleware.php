@@ -1,6 +1,6 @@
 <?php
 
-namespace Botble\Api\Http\Middleware;
+namespace ACTCMS\Api\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;

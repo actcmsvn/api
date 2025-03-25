@@ -1,14 +1,14 @@
 <?php
 
-namespace Botble\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Botble\Api\Facades\ApiHelper;
-use Botble\Api\Http\Requests\CheckEmailRequest;
-use Botble\Api\Http\Requests\LoginRequest;
-use Botble\Api\Http\Requests\RegisterRequest;
-use Botble\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Requests\CheckEmailRequest;
+use ACTCMS\Api\Http\Requests\LoginRequest;
+use ACTCMS\Api\Http\Requests\RegisterRequest;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

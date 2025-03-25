@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Api\Http\Resources;
+namespace ACTCMS\Api\Http\Resources;
 
-use Botble\ACL\Models\User;
+use ACTCMS\ACL\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**

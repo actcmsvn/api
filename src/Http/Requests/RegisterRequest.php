@@ -1,10 +1,10 @@
 <?php
 
-namespace Botble\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
-use Botble\Api\Facades\ApiHelper;
-use Botble\Base\Facades\BaseHelper;
-use Botble\Support\Http\Requests\Request;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Base\Facades\BaseHelper;
+use ACTCMS\Support\Http\Requests\Request;
 
 class RegisterRequest extends Request
 {

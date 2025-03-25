@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Botble\Api\Facades\ApiHelper;
-use Botble\Api\Http\Requests\ResendEmailVerificationRequest;
-use Botble\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Requests\ResendEmailVerificationRequest;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 

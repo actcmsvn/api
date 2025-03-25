@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Api\Facades;
+namespace ACTCMS\Api\Facades;
 
-use Botble\Api\Supports\ApiHelper as ApiHelperSupport;
+use ACTCMS\Api\Supports\ApiHelper as ApiHelperSupport;
 use Illuminate\Support\Facades\Facade;
 
 /**

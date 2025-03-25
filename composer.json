@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Botble\\Api\\": "src"
+            "ACTCMS\\Api\\": "src"
         }
     },
     "require": {
@@ -31,10 +31,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Botble\\Api\\Providers\\ApiServiceProvider"
+                "ACTCMS\\Api\\Providers\\ApiServiceProvider"
             ],
             "aliases": {
-                "ApiHelper": "Botble\\Api\\Facades\\ApiHelper"
+                "ApiHelper": "ACTCMS\\Api\\Facades\\ApiHelper"
             }
         }
     },

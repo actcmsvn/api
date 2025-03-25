@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Botble\Api\Forms\Settings\ApiSettingForm;
-use Botble\Api\Http\Requests\ApiSettingRequest;
-use Botble\Api\Tables\SanctumTokenTable;
-use Botble\Setting\Http\Controllers\SettingController;
+use ACTCMS\Api\Forms\Settings\ApiSettingForm;
+use ACTCMS\Api\Http\Requests\ApiSettingRequest;
+use ACTCMS\Api\Tables\SanctumTokenTable;
+use ACTCMS\Setting\Http\Controllers\SettingController;
 
 class ApiController extends SettingController
 {

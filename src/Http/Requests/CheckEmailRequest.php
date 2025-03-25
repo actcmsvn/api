@@ -1,8 +1,8 @@
 <?php
 
-namespace Botble\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
-use Botble\Support\Http\Requests\Request;
+use ACTCMS\Support\Http\Requests\Request;
 
 class CheckEmailRequest extends Request
 {

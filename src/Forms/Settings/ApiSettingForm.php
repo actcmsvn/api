@@ -1,12 +1,12 @@
 <?php
 
-namespace Botble\Api\Forms\Settings;
+namespace ACTCMS\Api\Forms\Settings;
 
-use Botble\Api\Facades\ApiHelper;
-use Botble\Api\Http\Requests\ApiSettingRequest;
-use Botble\Base\Forms\FieldOptions\OnOffFieldOption;
-use Botble\Base\Forms\Fields\OnOffCheckboxField;
-use Botble\Setting\Forms\SettingForm;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Requests\ApiSettingRequest;
+use ACTCMS\Base\Forms\FieldOptions\OnOffFieldOption;
+use ACTCMS\Base\Forms\Fields\OnOffCheckboxField;
+use ACTCMS\Setting\Forms\SettingForm;
 
 class ApiSettingForm extends SettingForm
 {

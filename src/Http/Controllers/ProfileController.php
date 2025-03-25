@@ -1,13 +1,13 @@
 <?php
 
-namespace Botble\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Botble\Api\Facades\ApiHelper;
-use Botble\Api\Http\Resources\UserResource;
-use Botble\Base\Facades\BaseHelper;
-use Botble\Base\Http\Responses\BaseHttpResponse;
-use Botble\Media\Facades\RvMedia;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Resources\UserResource;
+use ACTCMS\Base\Facades\BaseHelper;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Media\Facades\RvMedia;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

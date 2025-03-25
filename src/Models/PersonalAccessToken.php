@@ -1,11 +1,11 @@
 <?php
 
-namespace Botble\Api\Models;
+namespace ACTCMS\Api\Models;
 
-use Botble\Base\Contracts\BaseModel;
-use Botble\Base\Models\Concerns\HasBaseEloquentBuilder;
-use Botble\Base\Models\Concerns\HasMetadata;
-use Botble\Base\Models\Concerns\HasUuidsOrIntegerIds;
+use ACTCMS\Base\Contracts\BaseModel;
+use ACTCMS\Base\Models\Concerns\HasBaseEloquentBuilder;
+use ACTCMS\Base\Models\Concerns\HasMetadata;
+use ACTCMS\Base\Models\Concerns\HasUuidsOrIntegerIds;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
 class PersonalAccessToken extends SanctumPersonalAccessToken implements BaseModel

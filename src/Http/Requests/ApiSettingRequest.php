@@ -1,9 +1,9 @@
 <?php
 
-namespace Botble\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
-use Botble\Base\Rules\OnOffRule;
-use Botble\Support\Http\Requests\Request;
+use ACTCMS\Base\Rules\OnOffRule;
+use ACTCMS\Support\Http\Requests\Request;
 
 class ApiSettingRequest extends Request
 {

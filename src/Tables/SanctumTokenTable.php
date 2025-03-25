@@ -1,17 +1,17 @@
 <?php
 
-namespace Botble\Api\Tables;
+namespace ACTCMS\Api\Tables;
 
-use Botble\Api\Models\PersonalAccessToken;
-use Botble\Table\Abstracts\TableAbstract;
-use Botble\Table\Actions\DeleteAction;
-use Botble\Table\BulkActions\DeleteBulkAction;
-use Botble\Table\Columns\Column;
-use Botble\Table\Columns\CreatedAtColumn;
-use Botble\Table\Columns\DateTimeColumn;
-use Botble\Table\Columns\IdColumn;
-use Botble\Table\Columns\NameColumn;
-use Botble\Table\HeaderActions\CreateHeaderAction;
+use ACTCMS\Api\Models\PersonalAccessToken;
+use ACTCMS\Table\Abstracts\TableAbstract;
+use ACTCMS\Table\Actions\DeleteAction;
+use ACTCMS\Table\BulkActions\DeleteBulkAction;
+use ACTCMS\Table\Columns\Column;
+use ACTCMS\Table\Columns\CreatedAtColumn;
+use ACTCMS\Table\Columns\DateTimeColumn;
+use ACTCMS\Table\Columns\IdColumn;
+use ACTCMS\Table\Columns\NameColumn;
+use ACTCMS\Table\HeaderActions\CreateHeaderAction;
 use Illuminate\Database\Eloquent\Builder;
 
 class SanctumTokenTable extends TableAbstract
