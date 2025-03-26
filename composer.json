@@ -1,15 +1,15 @@
 {
     "name": "actcmsvn/api",
-    "description": "Gói API cho hệ thống ACTCMS",
+    "description": "API package for ACTCMS",
     "type": "package",
     "license": "MIT",
     "keywords": [
-        "cms",
-        "actcms",
-        "actcms platform",
-        "actcms api"
+        "actcmsvn",
+        "actcmsvn cms",
+        "actcmsvn platform",
+        "actcmsvn api"
     ],
-    "homepage": "https://actcms.io.vn",
+    "homepage": "https://actcmsvn.io.vn",
     "authors": [
         {
             "name": "ACTCMS Vietnam",

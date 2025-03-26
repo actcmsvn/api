@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static string modelName()
- * @method static \Botble\Api\Supports\ApiHelper setModelName(string $modelName)
+ * @method static \ACTCMS\Api\Supports\ApiHelper setModelName(string $modelName)
  * @method static string|null guard()
  * @method static string|null passwordBroker()
  * @method static string|null getConfig(string $key, $default = null)
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string getTable()
  * @method static bool enabled()
  *
- * @see \Botble\Api\Supports\ApiHelper
+ * @see \ACTCMS\Api\Supports\ApiHelper
  */
 class ApiHelper extends Facade
 {
