@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
-use ACTCMS\Base\Rules\OnOffRule;
-use ACTCMS\Support\Http\Requests\Request;
+use Actcmsvn\Base\Rules\OnOffRule;
+use Actcmsvn\Support\Http\Requests\Request;
 
 class ApiSettingRequest extends Request
 {
@@ -22,23 +22,23 @@ class ApiSettingRequest extends Request
     {
         return [
             'api_enabled' => [
-                'description' => 'Bật hoặc tắt API',
+                'description' => 'Enable or disable the API',
                 'example' => 'on',
             ],
             'api_key' => [
-                'description' => 'Khóa API để xác thực (tùy chọn)',
+                'description' => 'API key for authentication (optional)',
                 'example' => 'your-secret-api-key',
             ],
             'push_notifications_enabled' => [
-                'description' => 'Bật hoặc tắt thông báo đẩy',
+                'description' => 'Enable or disable push notifications',
                 'example' => 'on',
             ],
             'fcm_project_id' => [
-                'description' => 'ID dự án Firebase',
+                'description' => 'Firebase project ID',
                 'example' => 'my-firebase-project',
             ],
             'fcm_service_account_path' => [
-                'description' => 'Đường dẫn đến tệp JSON của tài khoản dịch vụ Firebase',
+                'description' => 'Path to Firebase service account JSON file',
                 'example' => 'firebase/service-account.json',
             ],
         ];

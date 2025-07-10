@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTCMS\Api\Supports;
+namespace Actcmsvn\Api\Supports;
 
 use App\Models\User;
-use ACTCMS\Base\Models\BaseModel;
+use Actcmsvn\Base\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
 class ApiHelper

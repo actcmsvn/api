@@ -1,10 +1,10 @@
 <?php
 
-namespace ACTCMS\Api\Services;
+namespace Actcmsvn\Api\Services;
 
-use ACTCMS\Api\Models\DeviceToken;
-use ACTCMS\Api\Models\PushNotification;
-use ACTCMS\Api\Models\PushNotificationRecipient;
+use Actcmsvn\Api\Models\DeviceToken;
+use Actcmsvn\Api\Models\PushNotification;
+use Actcmsvn\Api\Models\PushNotificationRecipient;
 use Carbon\Carbon;
 use Exception;
 use Google\Auth\Credentials\ServiceAccountCredentials;

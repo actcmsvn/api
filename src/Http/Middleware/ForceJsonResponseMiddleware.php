@@ -1,6 +1,6 @@
 <?php
 
-namespace ACTCMS\Api\Http\Middleware;
+namespace Actcmsvn\Api\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -15,8 +15,8 @@ class ForceJsonResponseMiddleware
 
         if ($request->bearerToken()) {
             $user = Auth::guard('sanctum')->user();
-            
-            if ($user && $user instanceof Authenticatable) {
+
+            if ($user instanceof Authenticatable) {
                 Auth::setUser($user);
             }
         }

@@ -1,6 +1,6 @@
 # Push Notification Commands
 
-Thư mục này chứa các lệnh quản lý thông báo đẩy trong gói API ACTCMS.
+This directory contains commands for managing push notifications in the Actcmsvn CMS API package.
 
 ## Available Commands
 
@@ -8,7 +8,7 @@ Thư mục này chứa các lệnh quản lý thông báo đẩy trong gói API 
 
 **Command:** `cms:push-notification:send`
 
-Gửi thông báo đẩy đến các ứng dụng di động với nhiều tùy chọn nhắm mục tiêu khác nhau.
+Send push notifications to mobile apps with various targeting options.
 
 #### Usage Examples
 
@@ -20,7 +20,7 @@ php artisan cms:push-notification:send --interactive
 **Send to All Users:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Ra mắt sản phẩm mới" \
+  --title="New Product Launch" \
   --message="Check out our latest products!" \
   --type="promotion"
 ```
@@ -28,7 +28,7 @@ php artisan cms:push-notification:send \
 **Send to Specific Platform:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Bản cập nhật iOS có sẵn" \
+  --title="iOS Update Available" \
   --message="Update your app to get the latest features" \
   --target="platform" \
   --target-value="ios"
@@ -37,7 +37,7 @@ php artisan cms:push-notification:send \
 **Send to User Type:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Cảnh báo của quản trị viên" \
+  --title="Admin Alert" \
   --message="System maintenance scheduled" \
   --target="user_type" \
   --target-value="admin"
@@ -46,7 +46,7 @@ php artisan cms:push-notification:send \
 **Send to Specific User:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Cập nhật đơn hàng" \
+  --title="Order Update" \
   --message="Your order has been shipped" \
   --target="user" \
   --target-value="123" \
@@ -56,7 +56,7 @@ php artisan cms:push-notification:send \
 **Schedule Notification:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Khuyến mại chớp nhoáng" \
+  --title="Flash Sale" \
   --message="50% off everything!" \
   --schedule="2024-12-25 09:00:00"
 ```
@@ -64,7 +64,7 @@ php artisan cms:push-notification:send \
 **With Rich Content:**
 ```bash
 php artisan cms:push-notification:send \
-  --title="Bài viết mới" \
+  --title="New Article" \
   --message="Read our latest blog post" \
   --action-url="/blog/latest-post" \
   --image-url="https://example.com/image.jpg" \
@@ -73,23 +73,23 @@ php artisan cms:push-notification:send \
 
 #### Options
 
-- `--title` - Tiêu đề thông báo (bắt buộc)
-- `--message` - Tin nhắn thông báo (bắt buộc)
-- `--type` - Loại thông báo (general, order, promotion, system) [mặc định: general]
-- `--target` - Loại mục tiêu (all, platform, user_type, user) [mặc định: all]
-- `--target-value` - Giá trị mục tiêu (required for platform, user_type, user targets)
-- `--action-url` - URL để mở khi thông báo được nhấp vào
-- `--image-url` - URL hình ảnh cho thông báo phong phú
-- `--data` - Dữ liệu JSON bổ sung
-- `--schedule` - Lịch trình thông báo (Y-m-d H:i:s format)
-- `--user-type` - Kiểu người dùng khi mục tiêu là người dùng (customer, admin) [mặc định: customer]
-- `--interactive` - Chạy ở chế độ tương tác
+- `--title` - Notification title (required)
+- `--message` - Notification message (required)
+- `--type` - Notification type (general, order, promotion, system) [default: general]
+- `--target` - Target type (all, platform, user_type, user) [default: all]
+- `--target-value` - Target value (required for platform, user_type, user targets)
+- `--action-url` - URL to open when notification is clicked
+- `--image-url` - Image URL for rich notifications
+- `--data` - Additional JSON data
+- `--schedule` - Schedule notification (Y-m-d H:i:s format)
+- `--user-type` - User type when target is user (customer, admin) [default: customer]
+- `--interactive` - Run in interactive mode
 
 ### 2. Process Scheduled Notifications Command
 
 **Command:** `cms:push-notification:process-scheduled`
 
-Xử lý và gửi thông báo đẩy theo lịch trình đã định.
+Process and send scheduled push notifications that are due.
 
 #### Usage Examples
 
@@ -110,12 +110,12 @@ php artisan cms:push-notification:process-scheduled --dry-run
 
 #### Options
 
-- `--limit` - Số lượng thông báo tối đa để xử lý [mặc định: 50]
-- `--dry-run` - Hiển thị những gì sẽ được xử lý mà không thực sự gửi
+- `--limit` - Maximum number of notifications to process [default: 50]
+- `--dry-run` - Show what would be processed without actually sending
 
 #### Scheduling
 
-Bạn có thể thêm lệnh này vào trình lập lịch Laravel của mình trong `app/Console/Kernel.php`:
+You can add this command to your Laravel scheduler in `app/Console/Kernel.php`:
 
 ```php
 protected function schedule(Schedule $schedule)
@@ -127,11 +127,11 @@ protected function schedule(Schedule $schedule)
 }
 ```
 
-## Điều kiện tiên quyết
+## Prerequisites
 
-Trước khi sử dụng các lệnh này, hãy đảm bảo rằng:
+Before using these commands, ensure that:
 
-1. **FCM Configuration** được thiết lập trong bảng quản trị:
+1. **FCM Configuration** is set up in the admin panel:
    - Go to Settings → API Settings
    - Configure FCM Project ID
    - Upload Firebase service account JSON file
@@ -161,7 +161,7 @@ Trước khi sử dụng các lệnh này, hãy đảm bảo rằng:
 
 ## Error Handling
 
-Các lệnh bao gồm xử lý lỗi toàn diện:
+The commands include comprehensive error handling:
 
 - Invalid FCM configuration
 - Missing device tokens
@@ -169,11 +169,11 @@ Các lệnh bao gồm xử lý lỗi toàn diện:
 - Network failures
 - Invalid token cleanup
 
-Tất cả lỗi đều được ghi vào nhật ký ứng dụng để gỡ lỗi.
+All errors are logged to the application log for debugging.
 
 ## Monitoring
 
-Kiểm tra trạng thái thông báo trong cơ sở dữ liệu:
+Check notification status in the database:
 
 ```sql
 -- View recent notifications

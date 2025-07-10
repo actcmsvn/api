@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Middleware;
+namespace Actcmsvn\Api\Http\Middleware;
 
-use ACTCMS\Api\Facades\ApiHelper;
+use Actcmsvn\Api\Facades\ApiHelper;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,7 +14,7 @@ class ApiEnabledMiddleware
         if (! ApiHelper::enabled()) {
             return response()->json([
                 'error' => true,
-                'message' => 'API hiện đang bị vô hiệu hóa. Vui lòng liên hệ với quản trị viên để bật quyền truy cập API.',
+                'message' => 'API is currently disabled. Please contact the administrator to enable API access.',
                 'data' => null,
             ], Response::HTTP_SERVICE_UNAVAILABLE);
         }

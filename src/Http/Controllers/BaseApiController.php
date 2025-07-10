@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
-use ACTCMS\Base\Http\Controllers\BaseController;
+use Actcmsvn\Base\Http\Controllers\BaseController;
 
 /**
  * Base API Controller for all API endpoints

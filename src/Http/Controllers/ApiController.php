@@ -1,15 +1,15 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
-use ACTCMS\Api\Forms\Settings\ApiSettingForm;
-use ACTCMS\Api\Http\Requests\ApiSettingRequest;
-use ACTCMS\Api\Http\Requests\SendNotificationRequest;
-use ACTCMS\Api\Services\PushNotificationService;
-use ACTCMS\Api\Tables\SanctumTokenTable;
-use ACTCMS\Base\Facades\Assets;
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
-use ACTCMS\Setting\Http\Controllers\SettingController;
+use Actcmsvn\Api\Forms\Settings\ApiSettingForm;
+use Actcmsvn\Api\Http\Requests\ApiSettingRequest;
+use Actcmsvn\Api\Http\Requests\SendNotificationRequest;
+use Actcmsvn\Api\Services\PushNotificationService;
+use Actcmsvn\Api\Tables\SanctumTokenTable;
+use Actcmsvn\Base\Facades\Assets;
+use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
+use Actcmsvn\Setting\Http\Controllers\SettingController;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -124,10 +124,10 @@ class ApiController extends SettingController
         $request->validate([
             'service_account_file' => ['required', 'file', 'mimes:json', 'max:2048'], // 2MB max
         ], [
-            'service_account_file.required' => 'Vui lòng chọn một tệp tài khoản dịch vụ.',
-            'service_account_file.file' => 'Tệp đã tải lên không hợp lệ.',
-            'service_account_file.mimes' => 'Tệp tài khoản dịch vụ phải là tệp JSON.',
-            'service_account_file.max' => 'Tệp tài khoản dịch vụ không được vượt quá 2MB.',
+            'service_account_file.required' => 'Please select a service account file.',
+            'service_account_file.file' => 'The uploaded file is invalid.',
+            'service_account_file.mimes' => 'The service account file must be a JSON file.',
+            'service_account_file.max' => 'The service account file must not exceed 2MB.',
         ]);
 
         try {
@@ -197,10 +197,10 @@ class ApiController extends SettingController
                     'project_id' => $projectId,
                     'client_email' => $json['client_email'],
                 ])
-                ->setMessage('Tệp tài khoản dịch vụ đã được tải lên và cấu hình thành công');
+                ->setMessage('Service account file uploaded and configured successfully');
 
         } catch (Exception $e) {
-            logger()->error('Không tải lên được tệp tài khoản dịch vụ', [
+            logger()->error('Failed to upload service account file', [
                 'error' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
@@ -208,7 +208,7 @@ class ApiController extends SettingController
 
             return $response
                 ->setError()
-                ->setMessage('Không tải lên được tệp tài khoản dịch vụ: ' . $e->getMessage())
+                ->setMessage('Failed to upload service account file: ' . $e->getMessage())
                 ->setCode(500);
         }
     }
@@ -226,17 +226,17 @@ class ApiController extends SettingController
             setting()->set('fcm_service_account_path', '')->save();
 
             return $response
-                ->setMessage('Tệp tài khoản dịch vụ đã được xóa thành công');
+                ->setMessage('Service account file removed successfully');
 
         } catch (Exception $e) {
-            logger()->error('Không xóa được tệp tài khoản dịch vụ', [
+            logger()->error('Failed to remove service account file', [
                 'error' => $e->getMessage(),
                 'path' => setting('fcm_service_account_path'),
             ]);
 
             return $response
                 ->setError()
-                ->setMessage('Không xóa được tệp tài khoản dịch vụ: ' . $e->getMessage())
+                ->setMessage('Failed to remove service account file: ' . $e->getMessage())
                 ->setCode(500);
         }
     }

@@ -1,6 +1,6 @@
 {
     "name": "actcmsvn/api",
-    "description": "API package for ACTCMS",
+    "description": "API package for Actcmsvn CMS",
     "type": "package",
     "license": "MIT",
     "keywords": [
@@ -9,16 +9,16 @@
         "actcmsvn platform",
         "actcmsvn api"
     ],
-    "homepage": "https://actcmsvn.io.vn",
+    "homepage": "https://actcmsvn.com",
     "authors": [
         {
-            "name": "ACTCMS Vietnam",
-            "email": "info@actcms.io.vn"
+            "name": "Actcmsvn Technologies",
+            "email": "contact@actcmsvn.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "ACTCMS\\Api\\": "src"
+            "Actcmsvn\\Api\\": "src"
         }
     },
     "require": {
@@ -32,10 +32,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ACTCMS\\Api\\Providers\\ApiServiceProvider"
+                "Actcmsvn\\Api\\Providers\\ApiServiceProvider"
             ],
             "aliases": {
-                "ApiHelper": "ACTCMS\\Api\\Facades\\ApiHelper"
+                "ApiHelper": "Actcmsvn\\Api\\Facades\\ApiHelper"
             }
         }
     },

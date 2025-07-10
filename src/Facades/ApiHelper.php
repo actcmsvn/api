@@ -1,13 +1,13 @@
 <?php
 
-namespace ACTCMS\Api\Facades;
+namespace Actcmsvn\Api\Facades;
 
-use ACTCMS\Api\Supports\ApiHelper as ApiHelperSupport;
+use Actcmsvn\Api\Supports\ApiHelper as ApiHelperSupport;
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static string modelName()
- * @method static \ACTCMS\Api\Supports\ApiHelper setModelName(string $modelName)
+ * @method static \Actcmsvn\Api\Supports\ApiHelper setModelName(string $modelName)
  * @method static string|null guard()
  * @method static string|null passwordBroker()
  * @method static string|null getConfig(string $key, $default = null)
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null getApiKey()
  * @method static bool hasApiKey()
  *
- * @see \ACTCMS\Api\Supports\ApiHelper
+ * @see \Actcmsvn\Api\Supports\ApiHelper
  */
 class ApiHelper extends Facade
 {

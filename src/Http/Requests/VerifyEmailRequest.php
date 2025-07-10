@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
-use ACTCMS\Support\Http\Requests\Request;
+use Actcmsvn\Support\Http\Requests\Request;
 
 class VerifyEmailRequest extends Request
 {

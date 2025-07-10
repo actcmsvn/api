@@ -1,12 +1,12 @@
 <?php
 
-namespace ACTCMS\Api\Forms;
+namespace Actcmsvn\Api\Forms;
 
-use ACTCMS\Api\Http\Requests\StoreSanctumTokenRequest;
-use ACTCMS\Api\Models\PersonalAccessToken;
-use ACTCMS\Base\Forms\FieldOptions\NameFieldOption;
-use ACTCMS\Base\Forms\Fields\TextField;
-use ACTCMS\Base\Forms\FormAbstract;
+use Actcmsvn\Api\Http\Requests\StoreSanctumTokenRequest;
+use Actcmsvn\Api\Models\PersonalAccessToken;
+use Actcmsvn\Base\Forms\FieldOptions\NameFieldOption;
+use Actcmsvn\Base\Forms\Fields\TextField;
+use Actcmsvn\Base\Forms\FormAbstract;
 
 class SanctumTokenForm extends FormAbstract
 {

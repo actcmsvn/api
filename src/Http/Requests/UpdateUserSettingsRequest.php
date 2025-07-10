@@ -1,6 +1,6 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
 class UpdateUserSettingsRequest extends ApiRequest
 {
@@ -28,6 +28,36 @@ class UpdateUserSettingsRequest extends ApiRequest
             'theme.in' => 'Theme must be one of: light, dark, auto.',
             'timezone.string' => 'Timezone must be a valid string.',
             'timezone.max' => 'Timezone must not exceed 50 characters.',
+        ];
+    }
+
+    public function bodyParameters(): array
+    {
+        return [
+            'biometric_enabled' => [
+                'description' => 'Enable or disable biometric authentication',
+                'example' => true,
+            ],
+            'notification_enabled' => [
+                'description' => 'Enable or disable push notifications',
+                'example' => true,
+            ],
+            'language' => [
+                'description' => 'Preferred language code',
+                'example' => 'en',
+            ],
+            'currency' => [
+                'description' => 'Preferred currency code',
+                'example' => 'USD',
+            ],
+            'theme' => [
+                'description' => 'Application theme preference',
+                'example' => 'light',
+            ],
+            'timezone' => [
+                'description' => 'User timezone',
+                'example' => 'America/New_York',
+            ],
         ];
     }
 }

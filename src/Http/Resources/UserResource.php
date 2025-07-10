@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTCMS\Api\Http\Resources;
+namespace Actcmsvn\Api\Http\Resources;
 
-use ACTCMS\ACL\Models\User;
-use ACTCMS\Api\Models\UserSetting;
+use Actcmsvn\ACL\Models\User;
+use Actcmsvn\Api\Models\UserSetting;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**

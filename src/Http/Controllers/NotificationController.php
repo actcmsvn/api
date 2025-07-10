@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
-use ACTCMS\Api\Models\PushNotificationRecipient;
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Actcmsvn\Api\Models\PushNotificationRecipient;
+use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Http\Request;
 
 class NotificationController extends BaseApiController
@@ -112,13 +112,13 @@ class NotificationController extends BaseApiController
         if (! $recipient) {
             return $response
                 ->setError()
-                ->setMessage('Không tìm thấy thông báo')
+                ->setMessage('Notification not found')
                 ->setCode(404);
         }
 
         $recipient->markAsRead();
 
-        return $response->setMessage('Thông báo được đánh dấu là đã đọc');
+        return $response->setMessage('Notification marked as read');
     }
 
     /**
@@ -146,13 +146,13 @@ class NotificationController extends BaseApiController
         if (! $recipient) {
             return $response
                 ->setError()
-                ->setMessage('Không tìm thấy thông báo')
+                ->setMessage('Notification not found')
                 ->setCode(404);
         }
 
         $recipient->markAsClicked();
 
-        return $response->setMessage('Thông báo được đánh dấu là đã nhấp');
+        return $response->setMessage('Notification marked as clicked');
     }
 
     /**
@@ -242,13 +242,13 @@ class NotificationController extends BaseApiController
         if (! $recipient) {
             return $response
                 ->setError()
-                ->setMessage('Không tìm thấy thông báo')
+                ->setMessage('Notification not found')
                 ->setCode(404);
         }
 
         $recipient->delete();
 
-        return $response->setMessage('Thông báo đã được xóa thành công');
+        return $response->setMessage('Notification deleted successfully');
     }
 
     protected function getUserType($user): string

@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
-use ACTCMS\Support\Http\Requests\Request;
+use Actcmsvn\Support\Http\Requests\Request;
 
 class CheckEmailRequest extends Request
 {
@@ -13,11 +13,12 @@ class CheckEmailRequest extends Request
         ];
     }
 
-    public function bodyParameters()
+    public function bodyParameters(): array
     {
         return [
             'email' => [
-                'example' => 'e.g: abc@example.com',
+                'description' => 'The email address to check',
+                'example' => 'john.smith@example.com',
             ],
         ];
     }

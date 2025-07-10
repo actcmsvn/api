@@ -1,30 +1,30 @@
 <?php
 
-namespace ACTCMS\Api\Commands;
+namespace Actcmsvn\Api\Commands;
 
-use ACTCMS\Api\Models\PushNotification;
-use ACTCMS\Api\Services\PushNotificationService;
+use Actcmsvn\Api\Models\PushNotification;
+use Actcmsvn\Api\Services\PushNotificationService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand('cms:push-notification:send', 'Gửi thông báo đẩy đến ứng dụng di động')]
+#[AsCommand('cms:push-notification:send', 'Send push notifications to mobile apps')]
 class SendPushNotificationCommand extends Command
 {
     protected $signature = 'cms:push-notification:send
-                            {--title= : Tiêu đề thông báo}
-                            {--message= : Tin nhắn thông báo}
-                            {--type=general : Loại thông báo (general, order, promotion, system)}
-                            {--target=all : Loại mục tiêu (all, platform, user_type, user)}
-                            {--target-value= : Giá trị mục tiêu (android/ios for platform, customer/admin for user_type, user_id for user)}
-                            {--action-url= : URL hành động khi thông báo được nhấp vào}
-                            {--image-url= : URL hình ảnh cho thông báo phong phú}
-                            {--data= : Dữ liệu JSON bổ sung}
-                            {--schedule= : Lịch trình thông báo (Y-m-d H:i:s format)}
-                            {--user-type=customer : Kiểu người dùng khi mục tiêu là người dùng (customer, admin)}
-                            {--interactive : Chạy ở chế độ tương tác}';
+                            {--title= : Notification title}
+                            {--message= : Notification message}
+                            {--type=general : Notification type (general, order, promotion, system)}
+                            {--target=all : Target type (all, platform, user_type, user)}
+                            {--target-value= : Target value (android/ios for platform, customer/admin for user_type, user_id for user)}
+                            {--action-url= : Action URL when notification is clicked}
+                            {--image-url= : Image URL for rich notifications}
+                            {--data= : Additional JSON data}
+                            {--schedule= : Schedule notification (Y-m-d H:i:s format)}
+                            {--user-type=customer : User type when target is user (customer, admin)}
+                            {--interactive : Run in interactive mode}';
 
-    protected $description = 'Gửi thông báo đẩy đến các ứng dụng di động với nhiều tùy chọn nhắm mục tiêu khác nhau';
+    protected $description = 'Send push notifications to mobile apps with various targeting options';
 
     protected PushNotificationService $pushNotificationService;
 
@@ -45,27 +45,27 @@ class SendPushNotificationCommand extends Command
 
     protected function handleInteractive(): int
     {
-        $this->info('🚀 Người gửi thông báo đẩy');
+        $this->info('🚀 Push Notification Sender');
         $this->line('');
 
         // Get notification details
-        $title = $this->ask('Tiêu đề thông báo');
+        $title = $this->ask('Notification title');
         if (empty($title)) {
-            $this->error('Tiêu đề là bắt buộc');
+            $this->error('Title is required');
 
             return self::FAILURE;
         }
 
-        $message = $this->ask('Tin nhắn thông báo');
+        $message = $this->ask('Notification message');
         if (empty($message)) {
-            $this->error('Tin nhắn là bắt buộc');
+            $this->error('Message is required');
 
             return self::FAILURE;
         }
 
-        $type = $this->choice('Loại thông báo', ['general', 'order', 'promotion', 'system'], 'general');
+        $type = $this->choice('Notification type', ['general', 'order', 'promotion', 'system'], 'general');
 
-        $target = $this->choice('Đối tượng mục tiêu', ['all', 'platform', 'user_type', 'user'], 'all');
+        $target = $this->choice('Target audience', ['all', 'platform', 'user_type', 'user'], 'all');
 
         $targetValue = null;
         if ($target === 'platform') {
@@ -101,10 +101,10 @@ class SendPushNotificationCommand extends Command
         }
 
         $schedule = null;
-        if ($this->confirm('Lên lịch thông báo?', false)) {
+        if ($this->confirm('Schedule notification?', false)) {
             $schedule = $this->ask('Schedule time (Y-m-d H:i:s format)');
             if ($schedule && ! strtotime($schedule)) {
-                $this->error('Định dạng ngày không hợp lệ');
+                $this->error('Invalid date format');
 
                 return self::FAILURE;
             }
@@ -135,7 +135,7 @@ class SendPushNotificationCommand extends Command
         $message = $this->option('message');
 
         if (empty($title) || empty($message)) {
-            $this->error('Tiêu đề và tin nhắn là bắt buộc. Sử dụng --title và --message tùy chọn hoặc chạy với --interactive');
+            $this->error('Title and message are required. Use --title and --message options or run with --interactive');
 
             return self::FAILURE;
         }
@@ -145,7 +145,7 @@ class SendPushNotificationCommand extends Command
 
         // Validate target and target-value combination
         if (in_array($target, ['platform', 'user_type', 'user']) && empty($targetValue)) {
-            $this->error("Giá trị mục tiêu được yêu cầu khi mục tiêu là '{$target}'");
+            $this->error("Target value is required when target is '{$target}'");
 
             return self::FAILURE;
         }
@@ -154,7 +154,7 @@ class SendPushNotificationCommand extends Command
         if ($this->option('data')) {
             $data = json_decode($this->option('data'), true);
             if (json_last_error() !== JSON_ERROR_NONE) {
-                $this->error('Dữ liệu JSON không hợp lệ');
+                $this->error('Invalid JSON data');
 
                 return self::FAILURE;
             }
@@ -162,7 +162,7 @@ class SendPushNotificationCommand extends Command
 
         $schedule = $this->option('schedule');
         if ($schedule && ! strtotime($schedule)) {
-            $this->error('Định dạng ngày lịch trình không hợp lệ');
+            $this->error('Invalid schedule date format');
 
             return self::FAILURE;
         }
@@ -190,14 +190,14 @@ class SendPushNotificationCommand extends Command
     {
         try {
             $this->line('');
-            $this->info('📱 Đang chuẩn bị gửi thông báo...');
+            $this->info('📱 Preparing to send notification...');
 
             // Create notification record
             $pushNotification = PushNotification::createFromRequest($notificationData, Auth::id());
 
             if (isset($notificationData['scheduled_at']) && $notificationData['scheduled_at']) {
-                $this->info("✅ Thông báo được lên lịch vào: {$notificationData['scheduled_at']}");
-                $this->info("ID thông báo: {$pushNotification->id}");
+                $this->info("✅ Notification scheduled for: {$notificationData['scheduled_at']}");
+                $this->info("Notification ID: {$pushNotification->id}");
 
                 return self::SUCCESS;
             }
@@ -210,8 +210,8 @@ class SendPushNotificationCommand extends Command
             return $result['success'] ? self::SUCCESS : self::FAILURE;
 
         } catch (\Exception $e) {
-            $this->error("Không gửi được thông báo: {$e->getMessage()}");
-            logger()->error('Lệnh thông báo đẩy không thành công', [
+            $this->error("Failed to send notification: {$e->getMessage()}");
+            logger()->error('Push notification command failed', [
                 'error' => $e->getMessage(),
                 'data' => $notificationData,
             ]);
@@ -241,7 +241,7 @@ class SendPushNotificationCommand extends Command
                 return $this->pushNotificationService->sendToUser($userType, (int) $targetValue, $notificationData);
 
             default:
-                throw new \InvalidArgumentException("Loại mục tiêu không hợp lệ: {$target}");
+                throw new \InvalidArgumentException("Invalid target type: {$target}");
         }
     }
 
@@ -250,9 +250,9 @@ class SendPushNotificationCommand extends Command
         $this->line('');
 
         if ($result['success']) {
-            $this->info('✅ Thông báo đã được gửi thành công!');
+            $this->info('✅ Notification sent successfully!');
         } else {
-            $this->error('❌ Không gửi được thông báo');
+            $this->error('❌ Notification failed to send');
         }
 
         $this->table(['Metric', 'Count'], [
@@ -264,7 +264,7 @@ class SendPushNotificationCommand extends Command
             $this->line("Message: {$result['message']}");
         }
 
-        $this->line("ID thông báo: {$pushNotification->id}");
+        $this->line("Notification ID: {$pushNotification->id}");
         $this->line('');
     }
 }

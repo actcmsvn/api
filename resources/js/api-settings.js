@@ -9,7 +9,7 @@ $(() => {
     const deviceTokensStatsUrl = container.data('device-tokens-stats-url');
 
     // Edit API key - enable the field for editing
-    $(document).on('click', '#edit-api-key', function (e) {
+    $(document).on('click', '#edit-api-key', function(e) {
         e.preventDefault();
 
         const apiKeyInput = $('#api-key-input');
@@ -24,11 +24,11 @@ $(() => {
         copyButton.show();
 
         // Show success message
-        Actcms.showSuccess(window.trans.api.api_key_edit_enabled || 'Trường khóa API hiện có thể chỉnh sửa được.');
+        Actcmsvn.showSuccess(window.trans.api.api_key_edit_enabled || 'API key field is now editable.');
     });
 
     // Generate random API key
-    $('#generate-api-key').on('click', function (e) {
+    $('#generate-api-key').on('click', function(e) {
         e.preventDefault();
 
         const apiKeyInput = $('#api-key-input');
@@ -44,7 +44,7 @@ $(() => {
         copyButton.show();
 
         // Show success message
-        Actcms.showSuccess(window.trans.api.api_key_generated || 'Khóa API đã được tạo thành công!');
+        Actcmsvn.showSuccess(window.trans.api.api_key_generated || 'API key generated successfully!');
 
         // Update examples with new key
         updateExamplesWithApiKey(newApiKey);
@@ -53,7 +53,7 @@ $(() => {
     // The copy functionality is now handled by the <x-core::copy> component
 
     // Update examples when API key changes
-    $('#api-key-input').on('input', function () {
+    $('#api-key-input').on('input', function() {
         const apiKey = $(this).val() || (window.trans.api.your_api_key_here || 'your-api-key-here');
         updateExamplesWithApiKey(apiKey);
 
@@ -71,23 +71,23 @@ $(() => {
     updateExamplesWithApiKey(currentApiKey);
 
     // Handle service account file upload
-    $('#upload-service-account-btn').on('click', function (e) {
+    $('#upload-service-account-btn').on('click', function(e) {
         e.preventDefault();
         $('#service-account-file-input').click();
     });
 
-    $('#service-account-file-input').on('change', function (e) {
+    $('#service-account-file-input').on('change', function(e) {
         const file = e.target.files[0];
         if (file) {
             // Validate file type
             if (file.type !== 'application/json' && !file.name.toLowerCase().endsWith('.json')) {
-                Actcms.showError(window.trans.api.invalid_json_file || 'Vui lòng chọn tệp JSON hợp lệ.');
+                Actcmsvn.showError(window.trans.api.invalid_json_file || 'Please select a valid JSON file.');
                 return;
             }
 
             // Validate file size (max 2MB)
             if (file.size > 2 * 1024 * 1024) {
-                Actcms.showError(window.trans.api.file_size_too_large || 'Kích thước tập tin phải nhỏ hơn 2MB.');
+                Actcmsvn.showError(window.trans.api.file_size_too_large || 'File size must be less than 2MB.');
                 return;
             }
 
@@ -96,10 +96,10 @@ $(() => {
     });
 
     // Handle service account file removal
-    $('#remove-service-account-btn').on('click', function (e) {
+    $('#remove-service-account-btn').on('click', function(e) {
         e.preventDefault();
 
-        if (confirm(window.trans.api.confirm_remove_service_account || 'Bạn có chắc chắn muốn xóa tệp tài khoản dịch vụ không?')) {
+        if (confirm(window.trans.api.confirm_remove_service_account || 'Are you sure you want to remove the service account file?')) {
             removeServiceAccountFile();
         }
     });
@@ -128,10 +128,10 @@ $(() => {
             data: formData,
             processData: false,
             contentType: false,
-            xhr: function () {
+            xhr: function() {
                 const xhr = new window.XMLHttpRequest();
                 // Upload progress
-                xhr.upload.addEventListener('progress', function (evt) {
+                xhr.upload.addEventListener('progress', function(evt) {
                     if (evt.lengthComputable) {
                         const percentComplete = (evt.loaded / evt.total) * 100;
                         progressBar.css('width', percentComplete + '%');
@@ -139,7 +139,7 @@ $(() => {
                 }, false);
                 return xhr;
             },
-            success: function (response) {
+            success: function(response) {
                 if (response.error === false) {
                     // Update the input field
                     $('#fcm-service-account-input').val(response.data.path);
@@ -148,24 +148,24 @@ $(() => {
                     updateServiceAccountStatus(response.data.path, response.data.filename);
 
                     // Show success message
-                    Actcms.showSuccess(window.trans.api.file_uploaded_successfully || 'Đã tải tập tin lên thành công!');
+                    Actcmsvn.showSuccess(window.trans.api.file_uploaded_successfully || 'File uploaded successfully!');
 
                     // Refresh the page to update the form state
                     setTimeout(() => {
                         window.location.reload();
                     }, 1500);
                 } else {
-                    Actcms.showError(response.message || (window.trans.api.file_upload_error || 'Không tải được tệp lên'));
+                    Actcmsvn.showError(response.message || (window.trans.api.file_upload_error || 'Failed to upload file'));
                 }
             },
-            error: function (xhr) {
-                let errorMessage = window.trans.api.file_upload_error || 'Không tải lên được tệp tài khoản dịch vụ';
+            error: function(xhr) {
+                let errorMessage = window.trans.api.file_upload_error || 'Failed to upload service account file';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
-                Actcms.showError(errorMessage);
+                Actcmsvn.showError(errorMessage);
             },
-            complete: function () {
+            complete: function() {
                 uploadBtn.prop('disabled', false);
                 progressDiv.hide();
                 progressBar.css('width', '0%');
@@ -190,7 +190,7 @@ $(() => {
             data: {
                 _token: $('input[name="_token"]').val()
             },
-            success: function (response) {
+            success: function(response) {
                 if (response.error === false) {
                     // Clear the input field
                     $('#fcm-service-account-input').val('');
@@ -199,24 +199,24 @@ $(() => {
                     updateServiceAccountStatus('', '');
 
                     // Show success message
-                    Actcms.showSuccess(window.trans.api.file_removed_successfully || 'Đã xóa tập tin thành công!');
+                    Actcmsvn.showSuccess(window.trans.api.file_removed_successfully || 'File removed successfully!');
 
                     // Refresh the page to update the form state
                     setTimeout(() => {
                         window.location.reload();
                     }, 1500);
                 } else {
-                    Actcms.showError(response.message || (window.trans.api.file_remove_error || 'Không thể xóa tệp'));
+                    Actcmsvn.showError(response.message || (window.trans.api.file_remove_error || 'Failed to remove file'));
                 }
             },
-            error: function (xhr) {
-                let errorMessage = window.trans.api.file_remove_error || 'Không xóa được tệp tài khoản dịch vụ';
+            error: function(xhr) {
+                let errorMessage = window.trans.api.file_remove_error || 'Failed to remove service account file';
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
                 }
-                Actcms.showError(errorMessage);
+                Actcmsvn.showError(errorMessage);
             },
-            complete: function () {
+            complete: function() {
                 removeBtn.prop('disabled', false).html(originalHtml);
             }
         });
@@ -234,22 +234,22 @@ $(() => {
             statusDiv.html(`
                 <small class="text-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 15l2 2l4 -4" /></svg>
-                    ${window.trans.api.service_account_file_label || 'Tệp tài khoản dịch vụ:'} <strong>${filename}</strong>
-                    <span class="text-muted">${window.trans.api.just_uploaded || '(Vừa tải lên)'}</span>
+                    ${window.trans.api.service_account_file_label || 'Service account file:'} <strong>${filename}</strong>
+                    <span class="text-muted">${window.trans.api.just_uploaded || '(Just uploaded)'}</span>
                 </small>
             `);
         } else {
             statusDiv.html(`
                 <small class="text-warning">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M10 12l4 4m0 -4l-4 4" /></svg>
-                    ${window.trans.api.service_account_not_uploaded || 'Tệp tài khoản dịch vụ là <strong>chưa tải lên</strong>. Vui lòng tải lên tệp JSON tài khoản dịch vụ của bạn.'}
+                    ${window.trans.api.service_account_not_uploaded || 'Service account file is <strong>not uploaded</strong>. Please upload your service account JSON file.'}
                 </small>
             `);
         }
     }
 
     // Send push notification
-    $('#send-notification-btn').on('click', function (e) {
+    $('#send-notification-btn').on('click', function(e) {
         e.preventDefault();
 
         const submitBtn = $(this);
@@ -260,13 +260,13 @@ $(() => {
         const message = $('#notification-message').val().trim();
 
         if (!title) {
-            Actcms.showError(window.trans.api.please_enter_notification_title || 'Vui lòng nhập tiêu đề thông báo.');
+            Actcmsvn.showError(window.trans.api.please_enter_notification_title || 'Please enter a notification title.');
             $('#notification-title').focus();
             return;
         }
 
         if (!message) {
-            Actcms.showError(window.trans.api.please_enter_notification_message || 'Vui lòng nhập tin nhắn thông báo.');
+            Actcmsvn.showError(window.trans.api.please_enter_notification_message || 'Please enter a notification message.');
             $('#notification-message').focus();
             return;
         }
@@ -274,7 +274,7 @@ $(() => {
         // Disable submit button and show loading state
         submitBtn.prop('disabled', true);
         submitBtn.find('.ti-send').removeClass('ti-send').addClass('ti-loader');
-        submitBtn.find('span').text(window.trans.api.notification_sending || 'Đang gởi...');
+        submitBtn.find('span').text(window.trans.api.notification_sending || 'Sending...');
 
         // Hide previous results
         resultDiv.hide();
@@ -294,7 +294,7 @@ $(() => {
             url: sendNotificationUrl,
             method: 'POST',
             data: formData,
-            success: function (response) {
+            success: function(response) {
                 if (response.error === false) {
                     showNotificationResult('success', response.message, response.data);
                     // Reset form fields
@@ -307,8 +307,8 @@ $(() => {
                     showNotificationResult('error', response.message, response.data);
                 }
             },
-            error: function (xhr) {
-                let errorMessage = window.trans.api.notification_error_occurred || 'Đã xảy ra lỗi khi gửi thông báo.';
+            error: function(xhr) {
+                let errorMessage = window.trans.api.notification_error_occurred || 'An error occurred while sending the notification.';
 
                 if (xhr.responseJSON && xhr.responseJSON.message) {
                     errorMessage = xhr.responseJSON.message;
@@ -316,17 +316,17 @@ $(() => {
 
                 showNotificationResult('error', errorMessage);
             },
-            complete: function () {
+            complete: function() {
                 // Re-enable submit button and restore original state
                 submitBtn.prop('disabled', false);
                 submitBtn.find('.ti-loader').removeClass('ti-loader').addClass('ti-send');
-                submitBtn.find('span').text(window.trans.api.send_notification || 'Gửi thông báo');
+                submitBtn.find('span').text(window.trans.api.send_notification || 'Send Notification');
             }
         });
     });
 
     // Handle Enter key in notification form fields
-    $('#send-notification-form input, #send-notification-form textarea, #send-notification-form select').on('keypress', function (e) {
+    $('#send-notification-form input, #send-notification-form textarea, #send-notification-form select').on('keypress', function(e) {
         if (e.which === 13 && !e.shiftKey) { // Enter key (but allow Shift+Enter in textarea)
             if ($(this).is('textarea')) {
                 return; // Allow normal Enter behavior in textarea
@@ -403,8 +403,8 @@ $(() => {
         `;
 
         if (data && type === 'success') {
-            const sentText = (window.trans.api.sent_to_devices || 'Gởi đến: :count devices').replace(':count', data.sent_count || 0);
-            const failedText = (window.trans.api.failed_devices || 'Thất bại: :count devices').replace(':count', data.failed_count || 0);
+            const sentText = (window.trans.api.sent_to_devices || 'Sent to: :count devices').replace(':count', data.sent_count || 0);
+            const failedText = (window.trans.api.failed_devices || 'Failed: :count devices').replace(':count', data.failed_count || 0);
 
             content += `
                 <div class="mt-2">
@@ -417,7 +417,7 @@ $(() => {
         }
 
         content += `
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="${window.trans.api.close || 'Đóng'}"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="${window.trans.api.close || 'Close'}"></button>
             </div>
         `;
 
@@ -438,12 +438,12 @@ $(() => {
         $.ajax({
             url: deviceTokensStatsUrl,
             method: 'GET',
-            success: function (response) {
+            success: function(response) {
                 if (response.error === false && response.data) {
                     updateDeviceTokenStats(response.data);
                 }
             },
-            error: function () {
+            error: function() {
                 // Silently fail - stats are not critical
             }
         });
@@ -457,7 +457,7 @@ $(() => {
         // Update the notification send info text
         const infoText = $('#notification-send-info');
         if (infoText.length && stats.total > 0) {
-            const deviceText = (window.trans.api.will_send_to_devices || 'Sẽ gửi đến :tổng số thiết bị đang hoạt động (:android Android, :ios iOS, :customers customers)')
+            const deviceText = (window.trans.api.will_send_to_devices || 'Will send to :total active devices (:android Android, :ios iOS, :customers customers)')
                 .replace(':total', stats.total)
                 .replace(':android', stats.android)
                 .replace(':ios', stats.ios)

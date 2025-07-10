@@ -1,11 +1,11 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
 use App\Models\User;
-use ACTCMS\Api\Facades\ApiHelper;
-use ACTCMS\Api\Http\Requests\ResendEmailVerificationRequest;
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Actcmsvn\Api\Facades\ApiHelper;
+use Actcmsvn\Api\Http\Requests\ResendEmailVerificationRequest;
+use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 

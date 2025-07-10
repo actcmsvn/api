@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Middleware;
+namespace Actcmsvn\Api\Http\Middleware;
 
-use ACTCMS\Api\Facades\ApiHelper;
+use Actcmsvn\Api\Facades\ApiHelper;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,8 +20,8 @@ class ApiKeyMiddleware
 
         if (! $requestApiKey || $requestApiKey !== $apiKey) {
             return response()->json([
-                'message' => 'Khóa API không hợp lệ hoặc bị thiếu. Vui lòng cung cấp tiêu đề X-API-KEY hợp lệ.',
-                'error' => 'Không được phép',
+                'message' => 'Invalid or missing API key. Please provide a valid X-API-KEY header.',
+                'error' => 'Unauthorized',
             ], Response::HTTP_UNAUTHORIZED);
         }
 

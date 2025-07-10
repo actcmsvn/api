@@ -1,10 +1,10 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
-use ACTCMS\ACL\Traits\SendsPasswordResetEmails;
-use ACTCMS\Api\Facades\ApiHelper;
-use ACTCMS\Api\Http\Requests\ForgotPasswordRequest;
+use Actcmsvn\ACL\Traits\SendsPasswordResetEmails;
+use Actcmsvn\Api\Facades\ApiHelper;
+use Actcmsvn\Api\Http\Requests\ForgotPasswordRequest;
 use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends BaseApiController

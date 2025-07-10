@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Actcms Test Suite">
+        <testsuite name="Actcmsvn Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

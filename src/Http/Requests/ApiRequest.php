@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
@@ -27,7 +27,7 @@ abstract class ApiRequest extends FormRequest
 
         $response = (new BaseHttpResponse())
             ->setError()
-            ->setMessage('Dữ liệu đã cho không hợp lệ')
+            ->setMessage('The given data is invalid')
             ->setData($errors)
             ->setCode(422);
 

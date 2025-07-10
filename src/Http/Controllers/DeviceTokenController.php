@@ -1,10 +1,10 @@
 <?php
 
-namespace ACTCMS\Api\Http\Controllers;
+namespace Actcmsvn\Api\Http\Controllers;
 
-use ACTCMS\Api\Http\Requests\DeviceTokenRequest;
-use ACTCMS\Api\Models\DeviceToken;
-use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use Actcmsvn\Api\Http\Requests\DeviceTokenRequest;
+use Actcmsvn\Api\Models\DeviceToken;
+use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -38,11 +38,11 @@ class DeviceTokenController extends BaseApiController
                     'created_at' => $deviceToken->created_at,
                     'updated_at' => $deviceToken->updated_at,
                 ])
-                ->setMessage('Mã thông báo thiết bị đã được đăng ký thành công');
+                ->setMessage('Device token registered successfully');
         } catch (Exception $e) {
             return $response
                 ->setError()
-                ->setMessage('Không đăng ký được mã thông báo thiết bị: ' . $e->getMessage())
+                ->setMessage('Failed to register device token: ' . $e->getMessage())
                 ->setCode(500);
         }
     }

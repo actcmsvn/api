@@ -29,14 +29,14 @@
         <div class="mt-2">
             <small class="text-success">
                 <x-core::icon name="ti ti-shield-check" class="me-1" />
-                Bảo vệ khóa API đã được <strong>enabled</strong>. Tất cả các yêu cầu đều yêu cầu tiêu đề X-API-KEY.
+                API key protection is <strong>enabled</strong>. All requests require the X-API-KEY header.
             </small>
         </div>
     @else
         <div class="mt-2">
             <small class="text-warning">
                 <x-core::icon name="ti ti-shield-x" class="me-1" />
-                Tính năng bảo vệ khóa API đã bị <strong>disabled</strong>. Các điểm cuối có thể truy cập công khai.
+                API key protection is <strong>disabled</strong>. Endpoints are publicly accessible.
             </small>
         </div>
     @endif

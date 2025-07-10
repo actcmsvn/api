@@ -1,12 +1,12 @@
 <?php
 
-namespace ACTCMS\Api\Commands;
+namespace Actcmsvn\Api\Commands;
 
-use ACTCMS\Setting\Facades\Setting;
+use Actcmsvn\Setting\Facades\Setting;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand('cms:api:generate-docs', 'Tạo tài liệu API từ các tuyến API của bạn.')]
+#[AsCommand('cms:api:generate-docs', 'Generate API documentation from your API routes.')]
 class GenerateDocumentationCommand extends Command
 {
     public function handle(): int

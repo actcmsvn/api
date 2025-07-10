@@ -1,8 +1,8 @@
 <?php
 
-namespace ACTCMS\Api\Http\Requests;
+namespace Actcmsvn\Api\Http\Requests;
 
-use ACTCMS\Support\Http\Requests\Request;
+use Actcmsvn\Support\Http\Requests\Request;
 
 class ResendEmailVerificationRequest extends Request
 {
@@ -17,7 +17,7 @@ class ResendEmailVerificationRequest extends Request
     {
         return [
             'email' => [
-                'description' => 'Địa chỉ email để gửi lại xác minh',
+                'description' => 'The email address to resend verification to',
                 'example' => 'john.smith@example.com',
             ],
         ];

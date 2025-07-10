@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'api/v1',
-    'namespace' => 'ACTCMS\Api\Http\Controllers',
+    'namespace' => 'Actcmsvn\Api\Http\Controllers',
     'middleware' => ['api'],
 ], function () {
     Route::post('register', 'AuthenticationController@register');

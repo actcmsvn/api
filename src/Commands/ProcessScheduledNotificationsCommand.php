@@ -1,21 +1,21 @@
 <?php
 
-namespace ACTCMS\Api\Commands;
+namespace Actcmsvn\Api\Commands;
 
-use ACTCMS\Api\Models\PushNotification;
-use ACTCMS\Api\Services\PushNotificationService;
+use Actcmsvn\Api\Models\PushNotification;
+use Actcmsvn\Api\Services\PushNotificationService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 
-#[AsCommand('cms:push-notification:process-scheduled', 'Xử lý và gửi thông báo đẩy theo lịch trình')]
+#[AsCommand('cms:push-notification:process-scheduled', 'Process and send scheduled push notifications')]
 class ProcessScheduledNotificationsCommand extends Command
 {
     protected $signature = 'cms:push-notification:process-scheduled
-                            {--limit=50 : Số lượng thông báo tối đa để xử lý}
-                            {--dry-run : Hiển thị những gì sẽ được xử lý mà không thực sự gửi}';
+                            {--limit=50 : Maximum number of notifications to process}
+                            {--dry-run : Show what would be processed without actually sending}';
 
-    protected $description = 'Xử lý và gửi thông báo đẩy theo lịch trình đến hạn';
+    protected $description = 'Process and send scheduled push notifications that are due';
 
     protected PushNotificationService $pushNotificationService;
 
@@ -30,7 +30,7 @@ class ProcessScheduledNotificationsCommand extends Command
         $limit = (int) $this->option('limit');
         $dryRun = $this->option('dry-run');
 
-        $this->info('🕐 Đang xử lý thông báo đẩy theo lịch trình...');
+        $this->info('🕐 Processing scheduled push notifications...');
         $this->line('');
 
         // Get scheduled notifications that are due
@@ -45,7 +45,7 @@ class ProcessScheduledNotificationsCommand extends Command
             ->get();
 
         if ($notifications->isEmpty()) {
-            $this->info('✅ Không có thông báo theo lịch trình để xử lý');
+            $this->info('✅ No scheduled notifications to process');
 
             return self::SUCCESS;
         }
@@ -54,7 +54,7 @@ class ProcessScheduledNotificationsCommand extends Command
         $this->line('');
 
         if ($dryRun) {
-            $this->warn('🔍 CHẾ ĐỘ CHẠY THỬ - Thực tế sẽ không có thông báo nào được gửi đi');
+            $this->warn('🔍 DRY RUN MODE - No notifications will actually be sent');
             $this->line('');
         }
 
@@ -65,10 +65,10 @@ class ProcessScheduledNotificationsCommand extends Command
         foreach ($notifications as $notification) {
             $processed++;
 
-            $this->line("Đang xử lý thông báo #{$notification->id}: {$notification->title}");
+            $this->line("Processing notification #{$notification->id}: {$notification->title}");
 
             if ($dryRun) {
-                $this->line("  → Sẽ gửi đến: {$notification->target_type}" .
+                $this->line("  → Would send to: {$notification->target_type}" .
                     ($notification->target_value ? " ({$notification->target_value})" : ''));
 
                 continue;
@@ -79,20 +79,20 @@ class ProcessScheduledNotificationsCommand extends Command
 
                 if ($result['success']) {
                     $successful++;
-                    $this->line("  ✅ Đã gửi thành công (sent: {$result['sent_count']}, failed: {$result['failed_count']})");
+                    $this->line("  ✅ Sent successfully (sent: {$result['sent_count']}, failed: {$result['failed_count']})");
                 } else {
                     $failed++;
-                    $this->line("  ❌ Thất bại: {$result['message']}");
+                    $this->line("  ❌ Failed: {$result['message']}");
                 }
 
             } catch (\Exception $e) {
                 $failed++;
-                $this->line("  ❌ Lỗi: {$e->getMessage()}");
+                $this->line("  ❌ Error: {$e->getMessage()}");
 
                 // Mark notification as failed
                 $notification->markAsFailed($e->getMessage());
 
-                logger()->error('Xử lý thông báo theo lịch trình không thành công', [
+                logger()->error('Scheduled notification processing failed', [
                     'notification_id' => $notification->id,
                     'error' => $e->getMessage(),
                 ]);
@@ -100,11 +100,11 @@ class ProcessScheduledNotificationsCommand extends Command
         }
 
         $this->line('');
-        $this->info('📊 Tóm tắt quá trình xử lý:');
-        $this->table(['Số liệu', 'Đếm'], [
-            ['Tổng số đã xử lý', $processed],
-            ['Thành công', $successful],
-            ['Thất bại', $failed],
+        $this->info('📊 Processing Summary:');
+        $this->table(['Metric', 'Count'], [
+            ['Total Processed', $processed],
+            ['Successful', $successful],
+            ['Failed', $failed],
         ]);
 
         return $failed > 0 ? self::FAILURE : self::SUCCESS;
@@ -128,14 +128,14 @@ class ProcessScheduledNotificationsCommand extends Command
             'platform' => $this->pushNotificationService->sendToPlatform($notification->target_value, $notificationData),
             'user_type' => $this->pushNotificationService->sendToUserType($notification->target_value, $notificationData),
             'user' => $this->pushNotificationService->sendToUser('customer', (int) $notification->target_value, $notificationData),
-            default => throw new \InvalidArgumentException("Loại mục tiêu không hợp lệ: {$notification->target_type}")
+            default => throw new \InvalidArgumentException("Invalid target type: {$notification->target_type}")
         };
 
         // Update notification status
         if ($result['success']) {
             $notification->markAsSent($result['sent_count'], $result['failed_count']);
         } else {
-            $notification->markAsFailed($result['message'] ?? 'Lỗi không xác định');
+            $notification->markAsFailed($result['message'] ?? 'Unknown error');
         }
 
         return $result;
