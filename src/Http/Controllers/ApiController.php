@@ -1,15 +1,15 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Actcmsvn\Api\Forms\Settings\ApiSettingForm;
-use Actcmsvn\Api\Http\Requests\ApiSettingRequest;
-use Actcmsvn\Api\Http\Requests\SendNotificationRequest;
-use Actcmsvn\Api\Services\PushNotificationService;
-use Actcmsvn\Api\Tables\SanctumTokenTable;
-use Actcmsvn\Base\Facades\Assets;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
-use Actcmsvn\Setting\Http\Controllers\SettingController;
+use ACTCMS\Api\Forms\Settings\ApiSettingForm;
+use ACTCMS\Api\Http\Requests\ApiSettingRequest;
+use ACTCMS\Api\Http\Requests\SendNotificationRequest;
+use ACTCMS\Api\Services\PushNotificationService;
+use ACTCMS\Api\Tables\SanctumTokenTable;
+use ACTCMS\Base\Facades\Assets;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Setting\Http\Controllers\SettingController;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

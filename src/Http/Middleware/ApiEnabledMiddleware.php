@@ -1,8 +1,8 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Middleware;
+namespace ACTCMS\Api\Http\Middleware;
 
-use Actcmsvn\Api\Facades\ApiHelper;
+use ACTCMS\Api\Facades\ApiHelper;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

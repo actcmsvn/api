@@ -1,10 +1,10 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
-use Actcmsvn\Api\Facades\ApiHelper;
-use Actcmsvn\Base\Facades\BaseHelper;
-use Actcmsvn\Support\Http\Requests\Request;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Base\Facades\BaseHelper;
+use ACTCMS\Support\Http\Requests\Request;
 use Illuminate\Validation\Rule;
 
 class RegisterRequest extends Request

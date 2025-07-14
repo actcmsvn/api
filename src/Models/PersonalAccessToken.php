@@ -1,11 +1,11 @@
 <?php
 
-namespace Actcmsvn\Api\Models;
+namespace ACTCMS\Api\Models;
 
-use Actcmsvn\Base\Contracts\BaseModel;
-use Actcmsvn\Base\Models\Concerns\HasBaseEloquentBuilder;
-use Actcmsvn\Base\Models\Concerns\HasMetadata;
-use Actcmsvn\Base\Models\Concerns\HasUuidsOrIntegerIds;
+use ACTCMS\Base\Contracts\BaseModel;
+use ACTCMS\Base\Models\Concerns\HasBaseEloquentBuilder;
+use ACTCMS\Base\Models\Concerns\HasMetadata;
+use ACTCMS\Base\Models\Concerns\HasUuidsOrIntegerIds;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
 class PersonalAccessToken extends SanctumPersonalAccessToken implements BaseModel

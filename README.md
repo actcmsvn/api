@@ -1,4 +1,4 @@
-# API for BotACTle CMS
+# API for ACTCMS
 
 <p align="center">
     <a href="https://packagist.org/packages/actcmsvn/api"><img src="https://img.shields.io/packagist/v/actcmsvn/api.svg?style=flat-square" alt="Latest Version"></a>

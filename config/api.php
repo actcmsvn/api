@@ -1,6 +1,6 @@
 <?php
 
-use Actcmsvn\ACL\Models\User;
+use ACTCMS\ACL\Models\User;
 
 return [
     'provider' => [

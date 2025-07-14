@@ -1,10 +1,10 @@
 <?php
 
-namespace Actcmsvn\Api\Database\Seeders;
+namespace ACTCMS\Api\Database\Seeders;
 
-use Actcmsvn\Api\Models\UserSetting;
-use Actcmsvn\Base\Supports\BaseSeeder;
-use Actcmsvn\Ecommerce\Models\Customer;
+use ACTCMS\Api\Models\UserSetting;
+use ACTCMS\Base\Supports\BaseSeeder;
+use ACTCMS\Ecommerce\Models\Customer;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 

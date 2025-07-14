@@ -1,9 +1,9 @@
 <?php
 
-namespace Actcmsvn\Api\Models;
+namespace ACTCMS\Api\Models;
 
-use Actcmsvn\Base\Models\BaseModel;
-use Actcmsvn\Base\Models\Concerns\HasUuidsOrIntegerIds;
+use ACTCMS\Base\Models\BaseModel;
+use ACTCMS\Base\Models\Concerns\HasUuidsOrIntegerIds;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class UserSetting extends BaseModel

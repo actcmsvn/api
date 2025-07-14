@@ -1,8 +1,8 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
-use Actcmsvn\Support\Http\Requests\Request;
+use ACTCMS\Support\Http\Requests\Request;
 
 class ForgotPasswordRequest extends Request
 {

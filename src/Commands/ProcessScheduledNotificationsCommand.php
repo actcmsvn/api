@@ -1,9 +1,9 @@
 <?php
 
-namespace Actcmsvn\Api\Commands;
+namespace ACTCMS\Api\Commands;
 
-use Actcmsvn\Api\Models\PushNotification;
-use Actcmsvn\Api\Services\PushNotificationService;
+use ACTCMS\Api\Models\PushNotification;
+use ACTCMS\Api\Services\PushNotificationService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;

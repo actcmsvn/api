@@ -1,8 +1,8 @@
 <?php
 
-use Actcmsvn\Api\Http\Controllers\ApiController;
-use Actcmsvn\Api\Http\Controllers\SanctumTokenController;
-use Actcmsvn\Base\Facades\AdminHelper;
+use ACTCMS\Api\Http\Controllers\ApiController;
+use ACTCMS\Api\Http\Controllers\SanctumTokenController;
+use ACTCMS\Base\Facades\AdminHelper;
 use Illuminate\Support\Facades\Route;
 
 AdminHelper::registerRoutes(function () {

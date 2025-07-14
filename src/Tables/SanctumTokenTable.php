@@ -1,17 +1,17 @@
 <?php
 
-namespace Actcmsvn\Api\Tables;
+namespace ACTCMS\Api\Tables;
 
-use Actcmsvn\Api\Models\PersonalAccessToken;
-use Actcmsvn\Table\Abstracts\TableAbstract;
-use Actcmsvn\Table\Actions\DeleteAction;
-use Actcmsvn\Table\BulkActions\DeleteBulkAction;
-use Actcmsvn\Table\Columns\Column;
-use Actcmsvn\Table\Columns\CreatedAtColumn;
-use Actcmsvn\Table\Columns\DateTimeColumn;
-use Actcmsvn\Table\Columns\IdColumn;
-use Actcmsvn\Table\Columns\NameColumn;
-use Actcmsvn\Table\HeaderActions\CreateHeaderAction;
+use ACTCMS\Api\Models\PersonalAccessToken;
+use ACTCMS\Table\Abstracts\TableAbstract;
+use ACTCMS\Table\Actions\DeleteAction;
+use ACTCMS\Table\BulkActions\DeleteBulkAction;
+use ACTCMS\Table\Columns\Column;
+use ACTCMS\Table\Columns\CreatedAtColumn;
+use ACTCMS\Table\Columns\DateTimeColumn;
+use ACTCMS\Table\Columns\IdColumn;
+use ACTCMS\Table\Columns\NameColumn;
+use ACTCMS\Table\HeaderActions\CreateHeaderAction;
 use Illuminate\Database\Eloquent\Builder;
 
 class SanctumTokenTable extends TableAbstract

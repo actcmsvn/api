@@ -1,6 +1,6 @@
 # Push Notification Commands
 
-This directory contains commands for managing push notifications in the Actcmsvn CMS API package.
+This directory contains commands for managing push notifications in the ACTCMS API package.
 
 ## Available Commands
 

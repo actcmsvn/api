@@ -1,14 +1,14 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Actcmsvn\Api\Forms\SanctumTokenForm;
-use Actcmsvn\Api\Http\Requests\StoreSanctumTokenRequest;
-use Actcmsvn\Api\Models\PersonalAccessToken;
-use Actcmsvn\Api\Tables\SanctumTokenTable;
-use Actcmsvn\Base\Http\Actions\DeleteResourceAction;
-use Actcmsvn\Base\Http\Controllers\BaseController;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Forms\SanctumTokenForm;
+use ACTCMS\Api\Http\Requests\StoreSanctumTokenRequest;
+use ACTCMS\Api\Models\PersonalAccessToken;
+use ACTCMS\Api\Tables\SanctumTokenTable;
+use ACTCMS\Base\Http\Actions\DeleteResourceAction;
+use ACTCMS\Base\Http\Controllers\BaseController;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 

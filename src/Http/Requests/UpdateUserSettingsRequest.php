@@ -1,6 +1,6 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Requests;
+namespace ACTCMS\Api\Http\Requests;
 
 class UpdateUserSettingsRequest extends ApiRequest
 {

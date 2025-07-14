@@ -1,21 +1,21 @@
 <?php
 
-namespace Actcmsvn\Api\Providers;
+namespace ACTCMS\Api\Providers;
 
-use Actcmsvn\Api\Commands\GenerateDocumentationCommand;
-use Actcmsvn\Api\Commands\ProcessScheduledNotificationsCommand;
-use Actcmsvn\Api\Commands\SendPushNotificationCommand;
-use Actcmsvn\Api\Facades\ApiHelper;
-use Actcmsvn\Api\Http\Middleware\ApiEnabledMiddleware;
-use Actcmsvn\Api\Http\Middleware\ApiKeyMiddleware;
-use Actcmsvn\Api\Http\Middleware\ForceJsonResponseMiddleware;
-use Actcmsvn\Api\Models\PersonalAccessToken;
-use Actcmsvn\Base\Events\SystemUpdateDBMigrated;
-use Actcmsvn\Base\Facades\PanelSectionManager;
-use Actcmsvn\Base\PanelSections\PanelSectionItem;
-use Actcmsvn\Base\Supports\ServiceProvider;
-use Actcmsvn\Base\Traits\LoadAndPublishDataTrait;
-use Actcmsvn\Setting\PanelSections\SettingCommonPanelSection;
+use ACTCMS\Api\Commands\GenerateDocumentationCommand;
+use ACTCMS\Api\Commands\ProcessScheduledNotificationsCommand;
+use ACTCMS\Api\Commands\SendPushNotificationCommand;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Middleware\ApiEnabledMiddleware;
+use ACTCMS\Api\Http\Middleware\ApiKeyMiddleware;
+use ACTCMS\Api\Http\Middleware\ForceJsonResponseMiddleware;
+use ACTCMS\Api\Models\PersonalAccessToken;
+use ACTCMS\Base\Events\SystemUpdateDBMigrated;
+use ACTCMS\Base\Facades\PanelSectionManager;
+use ACTCMS\Base\PanelSections\PanelSectionItem;
+use ACTCMS\Base\Supports\ServiceProvider;
+use ACTCMS\Base\Traits\LoadAndPublishDataTrait;
+use ACTCMS\Setting\PanelSections\SettingCommonPanelSection;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Routing\Events\RouteMatched;
 use Laravel\Sanctum\Sanctum;

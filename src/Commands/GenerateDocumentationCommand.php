@@ -1,8 +1,8 @@
 <?php
 
-namespace Actcmsvn\Api\Commands;
+namespace ACTCMS\Api\Commands;
 
-use Actcmsvn\Setting\Facades\Setting;
+use ACTCMS\Setting\Facades\Setting;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Attribute\AsCommand;
 

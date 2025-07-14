@@ -1,14 +1,14 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Actcmsvn\Api\Facades\ApiHelper;
-use Actcmsvn\Api\Http\Requests\UpdateUserSettingsRequest;
-use Actcmsvn\Api\Http\Resources\UserResource;
-use Actcmsvn\Api\Models\UserSetting;
-use Actcmsvn\Base\Facades\BaseHelper;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
-use Actcmsvn\Media\Facades\RvMedia;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Requests\UpdateUserSettingsRequest;
+use ACTCMS\Api\Http\Resources\UserResource;
+use ACTCMS\Api\Models\UserSetting;
+use ACTCMS\Base\Facades\BaseHelper;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Media\Facades\RvMedia;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;

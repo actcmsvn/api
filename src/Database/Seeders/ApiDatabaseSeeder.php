@@ -1,8 +1,8 @@
 <?php
 
-namespace Actcmsvn\Api\Database\Seeders;
+namespace ACTCMS\Api\Database\Seeders;
 
-use Actcmsvn\Base\Supports\BaseSeeder;
+use ACTCMS\Base\Supports\BaseSeeder;
 use Illuminate\Support\Facades\DB;
 
 class ApiDatabaseSeeder extends BaseSeeder

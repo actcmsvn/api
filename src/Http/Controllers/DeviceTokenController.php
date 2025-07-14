@@ -1,10 +1,10 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Actcmsvn\Api\Http\Requests\DeviceTokenRequest;
-use Actcmsvn\Api\Models\DeviceToken;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Http\Requests\DeviceTokenRequest;
+use ACTCMS\Api\Models\DeviceToken;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Exception;
 use Illuminate\Http\Request;
 

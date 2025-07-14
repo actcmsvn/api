@@ -1,13 +1,13 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
 use App\Models\User;
-use Actcmsvn\Api\Facades\ApiHelper;
-use Actcmsvn\Api\Http\Requests\CheckEmailRequest;
-use Actcmsvn\Api\Http\Requests\LoginRequest;
-use Actcmsvn\Api\Http\Requests\RegisterRequest;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Facades\ApiHelper;
+use ACTCMS\Api\Http\Requests\CheckEmailRequest;
+use ACTCMS\Api\Http\Requests\LoginRequest;
+use ACTCMS\Api\Http\Requests\RegisterRequest;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

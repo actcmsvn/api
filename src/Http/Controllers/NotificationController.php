@@ -1,9 +1,9 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Controllers;
+namespace ACTCMS\Api\Http\Controllers;
 
-use Actcmsvn\Api\Models\PushNotificationRecipient;
-use Actcmsvn\Base\Http\Responses\BaseHttpResponse;
+use ACTCMS\Api\Models\PushNotificationRecipient;
+use ACTCMS\Base\Http\Responses\BaseHttpResponse;
 use Illuminate\Http\Request;
 
 class NotificationController extends BaseApiController

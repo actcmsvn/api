@@ -1,11 +1,11 @@
 <?php
 
-namespace Actcmsvn\Api\Database\Seeders;
+namespace ACTCMS\Api\Database\Seeders;
 
-use Actcmsvn\Api\Models\PushNotification;
-use Actcmsvn\Api\Models\PushNotificationRecipient;
-use Actcmsvn\Base\Supports\BaseSeeder;
-use Actcmsvn\Ecommerce\Models\Customer;
+use ACTCMS\Api\Models\PushNotification;
+use ACTCMS\Api\Models\PushNotificationRecipient;
+use ACTCMS\Base\Supports\BaseSeeder;
+use ACTCMS\Ecommerce\Models\Customer;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;

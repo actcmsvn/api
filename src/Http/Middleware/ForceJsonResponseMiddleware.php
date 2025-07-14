@@ -1,6 +1,6 @@
 <?php
 
-namespace Actcmsvn\Api\Http\Middleware;
+namespace ACTCMS\Api\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
